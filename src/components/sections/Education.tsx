@@ -113,7 +113,7 @@ export function Education() {
         </AnimatedSection>
 
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" staggerDelay={0.07}>
-          {[
+          {([
             { name: 'IA para Marketing', issuer: 'Google', color: 'from-blue-500 to-indigo-600', icon: '🤖', year: '2025' },
             { name: 'Modelo de Machine Learning', issuer: 'Grow Up Data Analytics', color: 'from-violet-500 to-purple-600', icon: '🧠', year: '2024' },
             { name: 'Google Analytics para SEO', issuer: 'Semrush', color: 'from-orange-500 to-amber-500', icon: '📊', year: '2024' },
@@ -123,7 +123,7 @@ export function Education() {
             { name: 'Google Ads – Búsqueda', issuer: 'Google Academy', color: 'from-yellow-500 to-amber-500', icon: '🎯', year: '2019' },
             { name: 'Publicidad Google & Facebook', issuer: 'Google / Meta', color: 'from-cyan-500 to-blue-500', icon: '💡', year: '2019' },
             { name: 'Neuromarketing', issuer: 'Instituto Braidot', color: 'from-purple-500 to-violet-600', icon: '🔬', year: '' },
-          ].map(cert => (
+          ] as { name: string; issuer: string; color: string; icon: string; year: string }[]).map(cert => (
             <motion.div
               key={cert.name}
               variants={staggerItem}

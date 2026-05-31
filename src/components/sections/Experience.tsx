@@ -5,7 +5,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { ChevronDown, Calendar, Building2, TrendingUp } from 'lucide-react'
 
-const experiences = [
+// ── Types ──────────────────────────────────────────────────────────────
+interface Experience {
+  company: string
+  role: string
+  period: string
+  logo: string
+  color: string
+  isCurrent?: boolean
+  highlight?: string
+  kpis: string[]
+  bullets: string[]
+}
+
+// ── Data ───────────────────────────────────────────────────────────────
+const experiences: Experience[] = [
   {
     company: 'Premium Restaurants of America (KFC)',
     role: 'Performance Marketing',
@@ -111,13 +125,14 @@ const experiences = [
   },
 ]
 
+// ── Card Component ─────────────────────────────────────────────────────
 function ExperienceCard({
   exp,
   index,
   isOpen,
   onToggle,
 }: {
-  exp: typeof experiences[0]
+  exp: Experience
   index: number
   isOpen: boolean
   onToggle: () => void
@@ -137,14 +152,14 @@ function ExperienceCard({
       {/* Card */}
       <div className="card-base rounded-2xl overflow-hidden transition-all duration-300
         hover:shadow-card-hover dark:hover:shadow-2xl">
-        {/* Header (always visible) */}
+        {/* Header */}
         <button
           onClick={onToggle}
           className="w-full text-left p-5 flex items-start gap-4 cursor-pointer
             hover:bg-slate-50 dark:hover:bg-navy-800/50 transition-colors duration-150"
           aria-expanded={isOpen}
         >
-          {/* Logo bubble */}
+          {/* Logo */}
           <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${exp.color}
             flex items-center justify-center text-white font-black text-xs flex-shrink-0 shadow-sm`}>
             {exp.logo}
@@ -156,7 +171,7 @@ function ExperienceCard({
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                 {exp.company}
               </span>
-              {'isCurrent' in exp && exp.isCurrent && (
+              {exp.isCurrent && (
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full
                   bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400
                   text-xs font-bold">
@@ -202,7 +217,7 @@ function ExperienceCard({
                   {exp.kpis.map(kpi => (
                     <span key={kpi}
                       className="px-2.5 py-1 rounded-full text-xs font-semibold
-                        bg-brand-blue/8 dark:bg-brand-blue/15 text-brand-blue dark:text-brand-blue-ultra
+                        bg-brand-blue/[0.08] dark:bg-brand-blue/[0.15] text-brand-blue dark:text-brand-blue-ultra
                         border border-brand-blue/20">
                       {kpi}
                     </span>
@@ -233,13 +248,13 @@ function ExperienceCard({
   )
 }
 
+// ── Section ────────────────────────────────────────────────────────────
 export function Experience() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
     <section id="experiencia" className="section-padding bg-slate-50 dark:bg-navy-950">
       <div className="container-max">
-        {/* Header */}
         <AnimatedSection className="text-center mb-16">
           <span className="section-tag mb-4">Trayectoria</span>
           <h2 className="text-section-title font-black text-navy-900 dark:text-white mt-4">
@@ -251,9 +266,7 @@ export function Experience() {
           </p>
         </AnimatedSection>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical connector line */}
           <div className="absolute left-2.5 top-0 bottom-0 w-0.5
             bg-gradient-to-b from-brand-blue via-indigo-400 to-transparent" />
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useCallback } from 'react'
 import { useInView } from 'framer-motion'
 import { AnimatedSection, StaggerContainer, staggerItem } from '@/components/ui/AnimatedSection'
 import { motion } from 'framer-motion'
@@ -10,12 +10,11 @@ function useCounter(end: number, duration = 2000, start = 0, decimals = 0) {
   const [count, setCount] = useState(start)
   const ref = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const startAnimation = () => {
+  const startAnimation = useCallback(() => {
     const startTime = Date.now()
     const animate = () => {
       const elapsed = Date.now() - startTime
       const progress = Math.min(elapsed / duration, 1)
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3)
       const current = start + (end - start) * eased
       setCount(parseFloat(current.toFixed(decimals)))
@@ -24,7 +23,7 @@ function useCounter(end: number, duration = 2000, start = 0, decimals = 0) {
       }
     }
     animate()
-  }
+  }, [end, duration, start, decimals])
 
   useEffect(() => {
     return () => { if (ref.current) clearTimeout(ref.current) }
