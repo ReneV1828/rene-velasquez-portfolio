@@ -194,8 +194,6 @@ export function Hero() {
                   fill
                   priority
                   className="object-cover object-center"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgUH/8QAHhAAAgMBAQEBAQAAAAAAAAAAAQIDBAUREiH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8Acf2XFkDNLlJFDdtnJC0pS+SudSs5M2t7mVoJj9rFMkWpfFmcUJW5TkGsU1x31+sXrBSnNpMJYqxvKJvRUPSO2U+oAA=="
                 />
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 via-transparent to-transparent" />
