@@ -29,9 +29,9 @@ const experiences: Experience[] = [
     isCurrent: true,
     kpis: ['On Premise', 'Pricing', 'UX Kioscos', 'AOV', 'Plan Mejora Continua'],
     bullets: [
-      'Implemento campañas de publicidad y promociones para canales On Premise, asegurando presencia y activación efectiva en punto de venta.',
-      'Implementé estrategias de pricing y posicionamiento de productos, logrando mejoras en rentabilidad por canal y categoría por medio de análisis de rentabilidad de Menú.',
-      'Lidero proyecto de implementación de nuevo software para mejora del UX y AOV en kioscos, así como llevar a cabo plan de mejora continua.',
+      'Implementar campañas de publicidad y promociones para canales On Premise.',
+      'Implementar estrategias de pricing y posicionamiento de productos, logrando mejoras en rentabilidad por canal y categoría por medio de análisis de rentabilidad de Menú.',
+      'Liderar proyecto de implementación de nuevo software para mejora del UX y AOV en kioscos así como llevar acabo plan de mejora continua.',
     ],
   },
   {
